@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CastList, CastItem } from './Cast.styled';
+import { CastList, CastItem, WikiLink } from './Cast.styled';
 import { getCastsById } from '../filmApi/filmApi';
 const { useParams } = require('react-router-dom');
 
@@ -24,7 +24,9 @@ const Cast = () => {
               }
               alt={i.name}
             />
+            <WikiLink href={`https://en.wikipedia.org/wiki/${i.name.split(' ', 2).join('_')}`}>
             <p>{i.name ?? i.original_name}</p>
+            </WikiLink>
           </CastItem>
         ))}
     </CastList>

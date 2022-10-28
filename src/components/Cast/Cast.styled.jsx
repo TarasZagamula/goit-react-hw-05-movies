@@ -38,3 +38,14 @@ export const CastItem = styled.li`
     width: calc(100% / 6 - 30px);
   }
 `;
+
+export const WikiLink = styled.a`
+text-decoration: none;
+color: black;
+font-weight: bold;
+:hover,
+:focus {
+  color: red;
+}
+`;
+
