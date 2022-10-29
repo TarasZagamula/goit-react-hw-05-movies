@@ -23,7 +23,7 @@ const Movie = () => {
 
   return (
     <Container>
-      <SearchForm onSubmit={onSubmit} />
+      <SearchForm onSubmit={onSubmit} placeHolder={querryParams}/>
       <Outlet />
       {data && <Gallery data={data} way={``}/>}
     </Container>

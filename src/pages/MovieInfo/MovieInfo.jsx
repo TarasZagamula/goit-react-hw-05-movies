@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getFilmInfoById } from '../filmApi/filmApi';
+import { getFilmInfoById } from '../../components/filmApi/filmApi';
 import { Container } from 'components/Container/Container.styled';
 import InfoBar from './MovieInfoBar';
 import {
@@ -18,8 +18,13 @@ const { useParams, Outlet, useLocation, Link } = require('react-router-dom');
 
 const MovieInfo = () => {
   const [data, setData] = useState(null);
+  const [linkBack, setLinkBack] = useState('');
   const { id } = useParams();
   const location = useLocation();
+
+  useEffect(() => {
+    setLinkBack(location.state?.from ?? '/');
+  }, []);
 
   useEffect(() => {
     getFilmInfoById(id).then(setData);
@@ -33,7 +38,7 @@ const MovieInfo = () => {
           <MovieSpan>{`(${data.release_date.substring(0, 4)})`}</MovieSpan>
         </MovieTitle>
         <WrapperBox>
-          <Link to={location.state?.from ?? '/'}>
+          <Link to={linkBack}>
             <BackArrow />
           </Link>
           <MovieBox>

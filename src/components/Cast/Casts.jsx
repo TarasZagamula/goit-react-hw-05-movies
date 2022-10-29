@@ -24,7 +24,7 @@ const Cast = () => {
               }
               alt={i.name}
             />
-            <WikiLink href={`https://en.wikipedia.org/wiki/${i.name.split(' ', 2).join('_')}`}>
+            <WikiLink href={`https://en.wikipedia.org/wiki/${i.name.split(' ', 2).join('_')}`} target="_blank">
             <p>{i.name ?? i.original_name}</p>
             </WikiLink>
           </CastItem>

@@ -7,7 +7,7 @@ const Appbar = () => {
     <Header>
       <Container>
       <NavBox>
-        <BarLink to="/" end>Home</BarLink>
+        <BarLink to="/">Home</BarLink>
         <BarLink to="/movies">Movies</BarLink>
       </NavBox>
       </Container>

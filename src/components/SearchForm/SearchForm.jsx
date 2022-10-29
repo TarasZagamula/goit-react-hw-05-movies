@@ -6,7 +6,7 @@ import {
   ButtonLabelStyled,
 } from './SearchForm.styled';
 
-const SearchForm = ({ onSubmit }) => {
+const SearchForm = ({ onSubmit, placeHolder }) => {
   const [querry, setQuerry] = useState('');
 
   const onInput = e => {
@@ -23,7 +23,7 @@ const SearchForm = ({ onSubmit }) => {
 
   return (
     <SearchFormStyled onSubmit={onSubmitForm}>
-      <SearchInput type="text" onChange={onInput} />
+      <SearchInput type="text" onChange={onInput} placeholder={placeHolder}/>
       <SearchButton type="submit">
         <ButtonLabelStyled />
       </SearchButton>
