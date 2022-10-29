@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { getFilmInfoById } from '../../components/filmApi/filmApi';
 import { Container } from 'components/Container/Container.styled';
 import InfoBar from './MovieInfoBar';
@@ -18,13 +18,10 @@ const { useParams, Outlet, useLocation, Link } = require('react-router-dom');
 
 const MovieInfo = () => {
   const [data, setData] = useState(null);
-  const [linkBack, setLinkBack] = useState('');
   const { id } = useParams();
   const location = useLocation();
-
-  useEffect(() => {
-    setLinkBack(location.state?.from ?? '/');
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const linkBack = useMemo(() => location.state?.from ?? '/', []);
 
   useEffect(() => {
     getFilmInfoById(id).then(setData);
